@@ -1,0 +1,224 @@
+<div class="bg-grey">
+    <div class="container">
+        <div class="row">
+            <div class="findJob-search-tags findJob-menu">
+                <div id="menu-box" class="col-lg-12 col-md-12 menu-box" data-ng-init="vm.load()"
+                     ng-repeat="li in vm.list track by $index">
+                    <!--一级类目-->
+                    <h4><span></span>{{li.jobType|jobTypeFilter}}
+                        <i class="pull-right">
+                            <img src="../../images/findjobdayu.png" class="findjobdayu">
+                            <img src="../../images/findjobdayu2.png" class="findjobdayu2">
+                        </i>
+                    </h4>
+                    <!--二级类目-->
+                    <div>
+                        <a ui-sref="app.searchMain.searchJob({type:item.secondType})"
+                           ng-repeat="item in li.jobTypeList track by $index">{{item.secondType|secondTypeFilter}}
+                        </a>
+                    </div>
+                    <!--三级类目-->
+                    <div id="menu-sub" class="menu-sub dn">
+                        <div ng-repeat="item in li.jobTypeList track by $index">
+                            <span class="findjob-dettype">{{item.secondType|secondTypeFilter}}</span>
+                            <a ui-sref="app.searchMain.searchJob({type:item.secondType,subType:subItem.thirdType})"
+                               ng-repeat="subItem in item.secondTypeList track by $index">{{subItem.jobName}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" findJob-banner-wrap search-box">
+                <!--搜索框-->
+                <div class="search-boxtop">
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-addon companyName hidename">公司名称</span>
+                            <input ng-model="vm.searchParams.jobName" class="search-input form-control"
+                                   placeholder="请输入公司名称">
+                            <span class="input-group-addon companyNames ">
+                                  <button class="companyName-button"
+                                          ui-sref="app.searchMain.searchCompany({name:vm.searchParams.jobName})">搜索
+                                   </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <!--轮播图-->
+                <div class="findJob-top-carousel">
+                    <div id="findJob-top-carousel" class="carousel slide findJob-top-carousel" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner findJob-top-carousel" role="listbox">
+                            <div class="item"
+                                 ng-repeat="findJobArticle in vm.findJobArticle.data.articleList track by $index"
+                                 ng-class="{'active':$first}">
+                                <img src={{findJobArticle.img}} alt="" href={{findJobArticle.url}}>
+                            </div>
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control carousel-butten" href="#findJob-top-carousel" role="button"
+                           data-slide="prev"
+                           onclick="return false">
+                            <span aria-hidden="true"><img src="../images/pre-2.png" alt=""></span>
+                        </a>
+                        <a class="right carousel-control carousel-butten" href="#findJob-top-carousel" role="button"
+                           data-slide="next"
+                           onclick="return false">
+                            <span aria-hidden="true"><img src="../images/next-2.png" alt=""></span>
+                        </a>
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li class="mg-left-right-10" data-target="#findJob-top-carousel" data-slide-to={{$index}}
+                                ng-repeat="homeArticle in vm.findJobArticle.data.articleList track by $index"
+                                ng-class="{'active':$first}"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 bg-fff">
+                <div class="row bg-grey job-top">
+                    <a class="position-rec" ng-class="{'font-choose-style':!vm.isChoose}" href="#"
+                       ng-click="exchangeJob(!vm.isChoose)">推荐职位</a>
+                    <a class="position-rec" ng-class="{'font-choose-style':vm.isChoose}" href="#"
+                       ng-click="exchangeJob(vm.isChoose)">最新职位</a>
+                    <a href="#" ui-sref="app.jobList({n:vm.isChoose||false})"
+                       ng-class="{navChoice: $state.includes('app.recommendJob')}"
+                       class="pull-right more-hover">查看更多&nbsp;>
+                        <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+                    </a>
+                </div>
+
+                <!--推荐职位-->
+                <div class="row" ng-if="!vm.isChoose">
+                    <div class="findJob-jobList">
+                        <div class="col-lg-3 col-md-6 col-xs-12 pd-0"
+                             ng-repeat="x in vm.recommendJobList.data track by $index">
+                            <div class="findJob-jobList-box"
+                                 ui-sref="app.jobDescription({id:x.id})"
+                                 ng-class="{navChoice: $state.includes('app.description')}">
+                                <div class="middle-img-box">
+                                    <span></span>
+                                    <img src="{{x.logo}}" class="img-responsive">
+                                </div>
+                                <div class="findJob-jobList-text">
+                                    <p class="findJob-payroll">{{x.compensation|compensationFilter}}</p>
+                                    <p class="findJob-position word-length-limit">{{x.name}}</p>
+                                    <p class="findJob-companyName word-length-limit">{{x.companyName}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--最新职位-->
+                <div class="row" ng-if="vm.isChoose">
+                    <div class="findJob-jobList">
+                        <div class="col-lg-3 col-md-6 col-xs-12 pd-0"
+                             ng-repeat="x in vm.newJobList.data track by $index">
+                            <div class="findJob-jobList-box"
+                                 ui-sref="app.jobDescription({id:x.id})"
+                                 ng-class="{navChoice: $state.includes('app.description')}">
+                                <div class="middle-img-box">
+                                    <span></span>
+                                    <img src="{{x.logo}}" class="img-responsive">
+                                </div>
+                                <div class="findJob-jobList-text">
+                                    <p class="findJob-payroll ">{{x.compensation|compensationFilter}}</p>
+                                    <p class="findJob-position word-length-limit">{{x.name}}</p>
+                                    <p class="findJob-companyName word-length-limit">{{x.companyName}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--推荐公司-->
+                <div class="row">
+                    <div class="bg-grey job-top">
+                        <a href="#" class="font-bold position-rec">推荐公司</a>
+                        <a href="#" ui-sref="app.searchMain.searchCompany"
+                           ng-class="{navChoice: $state.includes('app.search.searchCompany')}"
+                           class="pull-right more-hover">查看更多&nbsp;>
+                            <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="recommend">
+                        <div class="col-sm-4 col-xs-12 pd-0"
+                             ui-sref="app.companyMain.companyHome({id:vm.industryImg.id})"
+                             ng-class="{navChoice: $state.includes('app.company.home')}">
+                            <img src="{{vm.industryImg.industryImg}}" class="findJob-recommend-img img-responsive">
+                            <div class="findJob-recommend-text">
+                                <p class="recommend-company-name word-length-limit">{{vm.industryImg.name}}</p>
+                                <p class="word-length-limit">{{vm.industryImg.slogan}}</p>
+                                <div class="recommend-list word-length-limit">
+                                    <span class="word-length-limit"><img src="../../images/phone-url-white.png">{{vm.industryImg.industryId|industryFilter}}</span>
+                                    <span class="word-length-limit"><img src="../../images/shangshi-white.png">{{vm.industryImg.financing|financingFilter}}</span>
+                                    <span class="word-length-limit"><img src="../../images/location-white.png">{{vm.industryImg.province|provinceFilter}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8 col-xs-12 pd-0">
+                            <div ng-class="{navChoice: $state.includes('app.companyMain.companyHome')}"
+                                 class="middle-img-box findJob-recommend-logo"
+                                 ng-repeat="x in vm.normalCompanyList track by $index">
+                                <span></span>
+                                <img src={{x.logo}} alt=""
+                                     class="img-responsive"
+                                     ui-sref="app.companyMain.companyHome({id:x.id})">
+                            </div>
+                        </div>
+                        <upcarousel></upcarousel>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="findJob-recommend"></div>
+        <div class="row">
+            <div class="col-xs-12 findJob-introduction">
+                <div class="container">
+                    <div class="row justify-content">
+                        <div class="findJob-text-box">
+                            <img src="../images/zjy-1fengxian.png">
+                        </div>
+                        <div class="findJob-text-box">
+                            <p class="findJob-big-size">无成本，零风险</p>
+                            <p class="findJob-little-size">无任何隐含费用全程免费</p>
+                            <p class="findJob-little-size">人才从投递到成功入职不需要任何费用，通过测试 后还可免费提供从业建议，不浪费每一分天赋。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12 findJob-introduction-second">
+                <div class="container">
+                    <div class="row justify-content reverse-order">
+                        <div class="findJob-text-box">
+                            <div class="text-box-margin">
+                                <p class="findJob-big-size">高效匹配，高度契合</p>
+                                <p class="findJob-little-size">
+                                    1-3天发送首个聘请通知<br/>
+                                    甄选职位 深度匹配 发送聘请通知
+                                </p>
+                                <p class="findJob-little-size">
+                                    3-5天安排候选人面试<br/>
+                                    安排面试 协助客户快速入职
+                                </p>
+                                <p class="findJob-little-size">
+                                    平均一周内推荐成功<br/>
+                                    多方洽谈 售后服务
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="findJob-text-box">
+                            <img src="../images/zjy-youxuan2.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="findJob-bottom-img row">
+            <img src="../../images/job-bottom-img.png" class="img-responsive">
+        </div>
+    </div>
+</div>

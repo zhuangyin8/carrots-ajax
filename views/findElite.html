@@ -1,0 +1,224 @@
+<div class="col-md-12 col-xs-12 elite-title mg-top--20">
+    <div class="banner elite-banner">
+        <div id="carousel-example-generic" class="carousel slide"
+             data-ride="carousel">
+            <!-- 轮播（Carousel）指标 -->
+            <!--<ol class="carousel-indicators">-->
+            <!--<li class="mg-left-right-10" data-target="#carousel-example-generic" data-slide-to={{$index}}-->
+            <!--ng-repeat="homeArticle in vm.findEliteArticle.data.articleList track by $index"-->
+            <!--ng-class="{'active':$first}"></li>-->
+            <!--</ol>-->
+            <!--内容-->
+            <div class="carousel-inner" role="listBox">
+                <div class="item" ng-repeat="findEliteArticle in vm.findEliteArticle.data.articleList track by $index"
+                     ng-class="{'active':$first}">
+                    <img data-target="#home-top-carousel" src={{findEliteArticle.img}} alt=""
+                         href={{findEliteArticle.url}}>
+                </div>
+            </div>
+             <!--Controls-->
+            <!--<a ng-non-bindable class="left carousel-control carousel-butten"-->
+            <!--href="#carousel-example-generic" role="button"-->
+            <!--data-slide="prev"-->
+            <!--onclick="return false">-->
+            <!--<span aria-hidden="true"><img src="../images/pre-1.png" alt=""></span>-->
+            <!--</a>-->
+            <!--<a ng-non-bindable class="right carousel-control carousel-butten"-->
+            <!--href="#carousel-example-generic" role="button"-->
+            <!--data-slide="next"-->
+            <!--onclick="return false">-->
+            <!--<span aria-hidden="true"><img src="../images/next-1.png" alt=""></span>-->
+            <!--</a>-->
+        </div>
+    </div>
+</div>
+<main class="container-fluid elite-main">
+    <div class="row">
+        <!--服务流程-->
+        <div class="col-xs-12 bg-fff text-center pd-bottom-120">
+            <div class="elite-section-title2 ">
+                <p class="elite-title-text ">萝卜多服务流程 </p>
+                <div class="elite-title-line"></div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-sm-6 col-xs-12 mg-top-20">
+                        <div>
+                            <img style="max-width: 100%" src="../images/elit-number1.png">
+                        </div>
+                        <div class="elite-flow-title">
+                            企业提供需求
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-xs-12 mg-top-20">
+                        <div>
+                            <img style="max-width: 100%" src="../images/elit-number2.png">
+                        </div>
+                        <div class="elite-flow-title">
+                            人才精选
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-xs-12 mg-top-20">
+                        <div>
+                            <img style="max-width: 100%" src="../images/elit-number3.png">
+                        </div>
+                        <div class="elite-flow-title">
+                            人才评测
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-xs-12 mg-top-20">
+                        <div>
+                            <img style="max-width: 100%" src="../images/elit-number4.png">
+                        </div>
+                        <div class="elite-flow-title">
+                            背景调查
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-xs-12 mg-top-20">
+                        <div>
+                            <img style="max-width: 100%" src="../images/elit-number5.png">
+                        </div>
+                        <div class="elite-flow-title">
+                            安排面试
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-xs-12 mg-top-20">
+                        <div>
+                            <img style="max-width: 100%" src="../images/elit-number6.png">
+                        </div>
+                        <div class="elite-flow-title">
+                            售后服务
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--萝卜多热枕为您服务-->
+        <div class="col-xs-12 text-center  elite-service-procedure  pd-bottom-60 ">
+            <div class="elite-section-title2">
+                    <p class="elite-title-text ">萝卜多热忱为您服务 </p>
+                    <div class="elite-title-line"></div>
+                <p class="elite-service-text">选择萝卜多找精英，立即节省3万元/单</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mg-bot-20">
+                        <div class= "elite-introduction-section1 bg-fff">
+                            <img class="elite-picture-box-middle" src="../images/elit-flow1.png">
+                            <p class='elite-little-size1'>1、一个职位需求特点的深入分析</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mg-bot-20">
+                        <div class= "elite-introduction-section1 bg-fff">
+                            <img class="elite-picture-box-middle" src="../images/elit-flow2.png">
+                            <p class='elite-little-size1'>2、一个职位分简历的认真筛选</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mg-bot-20">
+                        <div class= "elite-introduction-section1 bg-fff">
+                            <img class="elite-picture-box-middle" src="../images/elit-flow3.png">
+                            <p class='elite-little-size1'>3、一个职位早中晚的不断面试</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mg-bot-20">
+                        <div class= "elite-introduction-section1 bg-fff">
+                            <img class="elite-picture-box-middle" src="../images/elit-flow4.png">
+                            <p class='elite-little-size1'>4、一位人才全面专业的初次评测</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mg-bot-20">
+                        <div class= "elite-introduction-section1 bg-fff">
+                            <img class="elite-picture-box-middle" src="../images/elit-flow5.png">
+                            <p class='elite-little-size1'>5、一位人才真实可靠的背景调查</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mg-bot-20">
+                        <div class= "elite-introduction-section1 bg-fff">
+                            <img class="elite-picture-box-middle" src="../images/elit-flow6.png">
+                            <p class='elite-little-size1'>6、一位人才入职上岗的全程陪伴</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-danger btn-lg elite-btn-lg" target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e02a13c49ce05060e02ffcf3a373070454662b0f1a75426b1b19c2b5e9c59607">我要预约</a>
+        </div>
+        <!--我们的人才-->
+        <div class="col-xs-12 text-center bg-fff pd-bottom-80 ">
+            <div class="elite-section-title3">
+                <p class="elite-title-text ">我们的人才 </p>
+                <div class="elite-title-line"></div>
+            </div>
+            <div class="container elite-pannel-padding">
+                <div class="row">
+                    <div class="elite-panel">
+                        <span class="active elite-panel-span-text" ng-class="{'active':vm.talentLevel==0}" ng-click="vm.chooseTalentLevel(0)">初级</span>
+                        <span style="color: #e8e8e8">|</span>
+                        <span class="elite-panel-span-text" ng-class="{'active':vm.talentLevel==1}" ng-click="vm.chooseTalentLevel(1)">中级</span>
+                        <span style="color: #e8e8e8">|</span>
+                        <span class="elite-panel-span-text" ng-class="{'active':vm.talentLevel==2}" ng-click="vm.chooseTalentLevel(2)">高级</span>
+                    </div>
+                    <div class="elite-panel-line"></div>
+                    <div ng-repeat="items in vm.elite" class="elite-paneldata-wrap mg-top-20 mg-bot-20" ui-sref="app.talentDetail({id:items.id})">
+                        <div class=" elite-panel-left">
+                            <img class="elite-paneldata-img" src="{{ items.avatar }}" alt="">
+                            <div class="elite-panel-textlist">
+                               {{ items.commentTalentTabs }}
+                            </div>
+                        </div>
+                        <div class="elite-panel-right">
+                            <div class="elite-panel-chart">
+                                <chart id-type="{{ $index }}" chart-data="items.resultScore" indicatro="vm.indicatro" start-angle="vm.start" size="vm.size"></chart>
+                            </div>
+                            <div class="elite-panel-text-wrap">
+                                <p class="elite-panel-text-lg"><strong>{{ items.totalScore }}</strong>分</p>
+                                <p class="elite-little-text-md">超过 <span class="font-666"><strong class="font-fc2b47">{{ items.resultExceed }}%</strong>同等经验的人</span></p>
+                                <p class="elite-little-text-md "></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 elite-panel-text">
+                        <p class="elite-middle-size1 elite-panel-mg-20"><span class="elite-panel-span-special">*</span>1.“超过百分之多少同等经验的人”这项数据来自于萝卜多自己<strong>300+</strong>的人才库和行业基准数据。</p>
+                        <p class="elite-middle-size1">2.能够入选萝卜多人才库的人，经过各种渠道简历、面试筛选，自身能力已经超过招聘市场上 <strong>70%</strong>左右的人。</p>
+                        <p class="elite-middle-size1">3.萝卜多实时展示部分新入库的人才，您有什么岗位需求请联系我们，我们为您热忱服务。</p>
+                        <p class="elite-middle-special">客服电话：010-59478634<span class="elite-middle-special_right">邮箱：hr@ptteng.com</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-comment bg-f7">
+            <div class="elite-section-title">
+                <p class="elite-title-text pd-top-60">伙伴之言</p>
+                <div class="elite-title-line"></div>
+                <p class="elite-service-text"> PARTNER ADVICE</p>
+            </div>
+            <div class="container friend-box">
+                <!--伙伴之言轮播-->
+                <jqcarouse ca-id="eliteca"></jqcarouse>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--横条-->
+<div class="sidbar-1">
+    <div class="sidbar">
+        <img src="images/right-bar_07.png" height="15" width="18"/>
+        <span>联系我们</span>
+        <img src="images/right-bar_15.png" height="5" width="6"/>
+    </div>
+    <div class="phone">
+        <p>加群咨询</p>
+        <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e02a13c49ce05060e02ffcf3a373070454662b0f1a75426b1b19c2b5e9c59607"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="【修真院】求职辅导" title="【修真院】求职辅导"></a>
+    </div>
+    <div class="rithg">
+        <p>
+            <img src="images/right-bar_11.png" height="14" width="25"/>
+            联系电话
+        </p>
+        <p>010-59478634</p>
+        <p><img src="images/sidebar-email.png" height="22" width="28"/>
+            邮件
+        </p>
+        <p>hr@ptteng.com</p>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<div class="jobDescription">
+    <div class="container">
+        <div class="row">
+            <div class="jobDescription-introduce-cont">
+                <div class="col-md-8 col-sm-12 text-left jobDescription-msg">
+                    <div class="jobDescription-introduce">
+                        <!--产品标题-->
+                        <div class="jobDescription-title">
+                            <span class="jobDescription-product-text">{{vm.jobDescription.data.name}}</span>
+                            <p class="jobDescription-product-text2 jobDescription-introduce-cont-font-color">
+                                {{vm.jobDescription.data.companyName}}</p>
+                            <p class="jobDescriptionKeywords">
+                                <span class="jobDescription-product-text1"> {{vm.jobDescription.data.compensation|compensationFilter}} </span>
+                                <span><img src="../../images/location-jobdescripe.png">{{vm.jobDescription.data.province|provinceFilter}}</span>
+                                <span><img src="../../images/description-2.png">{{vm.jobDescription.data.education|educationFilter   }}</span>
+                                <span><img src="../../images/description-1.png">{{vm.jobDescription.data.experience|experienceFilter}} </span>
+                            </p>
+                        </div>
+                        <!--内容介绍-->
+                        <!--福利待遇-->
+                        <div class="welfare-move jobDescription-introduce-cont-font-color ">
+                            <div class="detail-welfare job-tag jD-welfare"
+                                 ng-repeat="tage in vm.jobDescription.data.tags track by $index">
+                                <p class="scale-text">{{tage.tag}}</p>
+                            </div>
+                        </div>
+                        <div class="jobDescription-introduce-cont-font-colors mg-bot-20">
+                            <img src="../../images/date.png">
+                            {{vm.jobDescription.data.updateAt| date:'yyyy-MM-dd'}}
+                        </div>
+                        <!--公司介绍-->
+                        <div class="jobDescription-title titler-line">
+                            <div class="jobDescription-product-text3">
+                                职位描述
+                            </div>
+                        </div>
+                        <!--公司历史-->
+                        <div class="jobDescription-product">
+                            <div class="jobDescription-text jobDescription-introduce-cont-font-color">
+                                <p class="font-14">岗位职责：</p>
+                                <pre class="font-14 edit-area-text">{{vm.jobDescription.data.responsibility}}</pre>
+                            </div>
+                            <div class="jobDescription-text jobDescription-introduce-cont-font-color">
+                                <p class="font-14">必要条件：</p>
+                                <pre class="font-14 edit-area-text">{{vm.jobDescription.data.requisite}}</pre>
+                            </div>
+                            <div class="jobDescription-text jobDescription-introduce-cont-font-color">
+                                <p class="font-14">公司福利：</p>
+                                <pre class="edit-area-text font-14">{{vm.jobDescription.data.boon}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jobDescription-footer">
+                        <!--模态框-->
+                        <button type="button" class="modal-btn-style" data-toggle="modal"
+                                data-target="#bs-example-modal-sme">我感兴趣
+                        </button>
+                        <div class="modal fade" id="bs-example-modal-sme">
+                            <div class="modal-dialog modal-panel">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center modal-header-style">
+                                        <button type="button" class="close modal-close-style" data-dismiss="modal"><span
+                                                aria-hidden="true">&times;</span><span
+                                                class="sr-only">Close</span></button>
+                                        <p class="modal-title">我感兴趣</p>
+                                    </div>
+                                    <div class="modal-body modal-body-style">
+                                        <p class="modal-body-title">模式介绍：萝卜多先技术面试-再推荐给用人单位</p>
+                                        <p class="modal-body-content">
+                                            萝卜多是一个知根知底的社群招聘。萝卜多的合作企业和候选人，都是萝卜多精心筛选，认证，陪伴多年的伙伴。在萝卜多找工作快，工作有保障。值得您信任的招聘网站。</p>
+                                        <p class="modal-body-content">您将感兴趣的职位、公司名称以及您的个人信息发送到我们的邮箱，我们会尽快帮您安排。</p>
+                                        <p class="mg-top-20">邮箱地址：hr@ptteng.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--分享-->
+                        <div class="job-share-box ">
+                            <img class="dis-none" src="../images/sharing.png" alt="">
+                            <span class="dis-none">分享</span>
+                            <div class="sharebuttonbox">
+                                <a class="s_weixin" data-toggle="collapse"
+                                   data-target="#code-box"
+                                   ng-click="vm.share('weixin')"></a>
+                                <a class="s_sqq" ng-click="vm.share('sqq')"></a>
+                                <a class="s_tsina" ng-click="vm.share('tsina')"></a>
+                            </div>
+                            <div class="code-box collapse" id="code-box">
+                                <span class="code-box-close" data-toggle="collapse"
+                                      data-target="#code-box">&times;</span>
+                                <div class="code-box-header">分享到微信朋友圈</div>
+                                <img src="http://pan.baidu.com/share/qrcode?w=150&h=150&url={{vm.url}}" alt="">
+                                <div class="code-box-footer">
+                                    打开微信，点击底部的“发现”，
+                                    使用“扫一扫”即可将网页分享至朋友圈。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 text-left jobDescription-sidebar">
+                    <div class="middle-img-box jobDescription-sidebar-logo">
+                        <span></span>
+                        <img src="{{vm.jobDescription.data.logo}}" alt=""
+                             class="img-responsive">
+                    </div>
+                    <div class="jobDescription-sidebar-logo-text"
+                         ui-sref="app.companyMain.companyHome({id:vm.jobDescription.data.companyId})">
+                        {{vm.jobDescription.data.companyName}}
+                        <span>
+                            <img src="../../images/company-home-1.png" alt="">
+                        </span>
+                    </div>
+
+                    <!--公司福利-->
+                    <div class="jobDescription-titler">
+                        <span class="jobDescription-product-text4">基本信息</span>
+                        <span class="sidebar-split-line"></span>
+                    </div>
+                    <!--公司规模-->
+                    <div class="scale font-14 ">
+                        <div class="industry">
+                            <img src="../../images/people.png">
+                            <span>{{vm.jobDescription.data.totalNum|globalFilter:'companyConstent':'companyPop'}}</span>
+                        </div>
+                        <div class="industry">
+                            <img src="../../images/company-home-3.png">
+                            <span class="companyhome-industry">
+                                <span ng-repeat="tota in vm.jobDescription.data.industryList track by $index"><span
+                                        ng-if="!$first">/</span> {{tota.industry|industryFilter}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

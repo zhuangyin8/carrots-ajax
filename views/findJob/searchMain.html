@@ -1,0 +1,22 @@
+<!--顶部边栏-->
+<div class="search-top">
+    <div class="container">
+        <div class="row tag-bottom">
+            <div class="search-title search-title-company search-titles"
+                 ui-sref="app.searchMain.searchCompany"
+                 ng-class="{searchTitleChoice:$state.includes('app.searchMain.searchCompany')}">
+                公司
+            </div>
+            <div class="search-title search-title-job" ui-sref="app.searchMain.searchJob"
+                 ng-class="{searchTitleChoice:$state.includes('app.searchMain.searchJob')}">
+                职业
+            </div>
+        </div>
+    </div>
+
+    <!--主题内容-->
+    <div ui-view="">
+
+
+    </div>
+</div>

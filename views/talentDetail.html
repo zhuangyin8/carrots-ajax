@@ -1,0 +1,202 @@
+<!-- 页面刷新预加载动画  11.3-->
+<div ng-if='vm.loader' id="loader-wrapper">
+    <div id="loader">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- 页面刷新预加载动画over  -->
+
+<div class="talent-header text-center bg-fff mg-top--20">
+    <span>人才评测</span>
+</div>
+<div class="container-fluid talent-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 talent-info-title">
+                <div class="talent-circle">1</div>
+                <span class="talent-circle-title">基本信息</span>
+            </div>
+            <div class="talent-info-main">
+                <span class="col-sm-4 col-xs-12">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：{{ vm.data.name }}</span>
+                <span class="col-sm-4 col-xs-12">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：{{ vm.data.profession|globalFilter:'positionConstent':'positionList' }}</span>
+                <span class="col-sm-4 col-xs-12">工作经验：{{ vm.data.experience |globalFilter:'positionConstent':'experience' }}</span>
+                <span class="col-sm-4 col-xs-12">期望地点：{{ vm.data.province|provinceFilter }}</span>
+                <span class="col-sm-4 col-xs-12">工作状态：{{ vm.data.workCondition|globalFilter:'companyConstent':'workStatus' }}</span>
+                <span class="col-sm-4 col-xs-12">建议薪资：{{ vm.data.minPay }}K-{{ vm.data.maxPay }}K</span>
+                <span ng-show="vm.data.comment" class="col-xs-12">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：{{ vm.data.comment }}</span>
+            </div>
+            <div class="col-xs-12 talent-info-title">
+                <div class="talent-circle">2</div>
+                <span class="talent-circle-title">背景调查</span>
+            </div>
+            <div class="talent-info-main">
+                <span ng-show="vm.data.basicInformation===1" class="col-xs-12">基础信息调查&nbsp;&nbsp;&nbsp;&nbsp;真实</span>
+                <span ng-show="vm.data.workRecord===1" class="col-xs-12">工作履历调查&nbsp;&nbsp;&nbsp;&nbsp;真实</span>
+                <span class="col-xs-12">
+                    <div class="talent-legend-text">
+                        工作能力程度&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div class="talent-progeressbar">
+                        <div class="talent-progeressbar-long" style="width: {{ vm.data.workAbility }}%"></div>
+                    </div>
+                    <div class="talent-legend-text">{{ vm.data.workAbility }}分</div>
+                </span>
+                <span class="col-xs-12">
+                    <div class="talent-legend-text">岗位匹配程度&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="talent-progeressbar">
+                     <div class="talent-progeressbar-long" style="width: {{ vm.data.post }}%"></div>
+                 </div>
+                     <div class="talent-legend-text">{{ vm.data.post }}分</div>
+                </span>
+            </div>
+            <div class="col-xs-12 talent-info-title">
+                <div class="talent-circle">3</div>
+                <span class="talent-circle-title">知识结构</span>
+            </div>
+            <div class="talent-info-main">
+                <div class="col-lg-5 col-md-7 col-sm-8 hidden-xs">
+                    <chart ng-if="vm.data.knowledge" id-type="chart1" radius="75%" chart-data="vm.data.knowledge"
+                           indicatro="vm.indicatro1" size="vm.size" center="vm.center"></chart>
+                    <p class="text-center text-color-fc2b47 talent-info-degree">超过同等经验{{ vm.data.knowledgeExceed }}%的人</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-sm-4 col-xs-12">
+                    <p class="talent-info-comment_title">评&nbsp;&nbsp;&nbsp;&nbsp;语</p>
+                    <p class="talent-info-comment_content">
+                        {{ vm.data.projectRemark }}</p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="col-xs-12 talent-info-title">
+                <div class="talent-circle">4</div>
+                <span class="talent-circle-title">职业素养</span>
+            </div>
+            <div class="talent-info-main">
+                <div class="col-lg-5 col-md-7 col-sm-8 hidden-xs">
+                    <chart ng-if="vm.data.professionQuality" id-type="chart2" radius="75%"
+                           chart-data="vm.data.professionQuality" indicatro="vm.indicatro2" size="vm.size"
+                           center="vm.center"></chart>
+                    <p class="text-center text-color-fc2b47 talent-info-degree">超过同等经验{{ vm.data.professionExceed }}%的人</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-sm-4 col-xs-12">
+                    <p class="talent-info-comment_title">评&nbsp;&nbsp;&nbsp;&nbsp;语</p>
+                    <p class="talent-info-comment_content">
+                        {{ vm.data.qualityRemark }}</p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="col-xs-12 talent-info-title">
+                <div class="talent-circle">5</div>
+                <span class="talent-circle-title">项目经验</span>
+            </div>
+            <div class="talent-info-main">
+                <div class="col-lg-5 col-md-7 col-sm-8 hidden-xs">
+                    <chart ng-if="vm.data.project" id-type="chart3" radius="75%" chart-data="vm.data.project"
+                           indicatro="vm.indicatro3" size="vm.size" center="vm.center"></chart>
+                    <p class="text-center text-color-fc2b47 talent-info-degree">超过同等经验{{ vm.data.projectExceed }}%的人</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-sm-4 col-xs-12">
+                    <p class="talent-info-comment_title">评&nbsp;&nbsp;&nbsp;&nbsp;语</p>
+                    <p class="talent-info-comment_content">
+                        {{ vm.data.skillRemark }}</p>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="col-xs-12 talent-info-title">
+                <div class="talent-circle">6</div>
+                <span class="talent-circle-title">职业技能评测</span>
+            </div>
+            <div class="talent-info-main talent-legend-main">
+                <span class="col-xs-12">图例：</span>
+                <span class="col-xs-12">
+                    <div class="talent-legend" style="background-color: #a6a6a6"></div>
+                    <div class="talent-legend-text"></div>灰色（从未耳闻）：从未听说过，也未接触过，不曾了解
+                </span>
+                <span class="col-xs-12">
+                    <div class="talent-legend" style="background-color: #ffffff"></div>
+                    <div class="talent-legend-text"></div>白色（略有所知）：身边的同事使用过，项目组的其他人使用过，但是自己并没有接触过
+                </span> <span class="col-xs-12">
+                    <div class="talent-legend" style="background-color: #9bbb59"></div>
+                    <div class="talent-legend-text"></div>绿色（反复使用）：在项目中经常用到，知道怎么用，但是并不是特别了解运行的原理
+                </span> <span class="col-xs-12">
+                    <div class="talent-legend" style="background-color: #4bacc6"></div>
+                    <div class="talent-legend-text"></div>蓝色（深入研究）：不仅仅是用过，而且知道实现的原理，但是并没有做过修改和优化
+                </span> <span class="col-xs-12">
+                    <div class="talent-legend" style="background-color: #8064a2"></div>
+                    <div class="talent-legend-text"></div>紫色（改进优化）：针对自己项目中的需要，修改过源码，但是终究还是在别人基本上的改进
+                </span> <span class="col-xs-12">
+                    <div class="talent-legend" style="background-color: #f79646"></div>
+                    <div class="talent-legend-text"></div>橙色（造物圣者）：完全是自己写出来的源码
+                </span>
+                <div class="col-xs-12">
+                    <kityminder kity-data="vm.skillData"></kityminder>
+                </div>
+                <div class="col-xs-12" ng-show="vm.data.skillAwardMarks">
+                    <span class="talent-little-text">加分项</span>
+                    <p class="talent-info-comment_content" style="margin-top: 20px;">{{ vm.data.skillAwardMarks }}</p>
+                </div>
+                <div class="col-md-5 mg-top-20 talent-bottom">
+                    <p>以上根据人才真实情况进行评测，综合评测结果已超过<strong>{{ vm.data.workAbility }}%</strong>人，超过同等经验的人这项数据来自萝卜多自己 <strong>300+</strong>的人才库和行业基准数
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <p class="talent-edit-text-bottom" style="margin-top: 51px">人才测评报告由萝卜多提供</p>
+                </div>
+            </div>
+            <div class="job-share-box ">
+                <img class="dis-none" src="../images/sharing.png" alt="">
+                <span class="dis-none">分享</span>
+                <div class="sharebuttonbox">
+                    <a class="s_weixin" data-toggle="collapse"
+                       data-target="#code-box"
+                       ng-click="vm.share('weixin')"></a>
+                    <a class="s_sqq" ng-click="vm.share('sqq')"></a>
+                    <a class="s_tsina" ng-click="vm.share('tsina')"></a>
+                </div>
+                <div class="code-box collapse" id="code-box">
+                                <span class="code-box-close" data-toggle="collapse"
+                                      data-target="#code-box">&times;</span>
+                    <div class="code-box-header">分享到微信朋友圈</div>
+                    <img src="http://pan.baidu.com/share/qrcode?w=150&h=150&url={{vm.url}}" alt="">
+                    <div class="code-box-footer">
+                        打开微信，点击底部的“发现”，
+                        使用“扫一扫”即可将网页分享至朋友圈。
+                    </div>
+                </div>
+                <a class="btn btn-lg btn-success talent-btn-online" target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e02a13c49ce05060e02ffcf3a373070454662b0f1a75426b1b19c2b5e9c59607">在线咨询</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--横条-->
+<div class="sidbar-1">
+    <div class="sidbar">
+        <img src="images/right-bar_07.png" height="15" width="18"/>
+        <span>联系我们</span>
+        <img src="images/right-bar_15.png" height="5" width="6"/>
+    </div>
+    <div class="phone">
+        <p>加群咨询</p>
+        <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e02a13c49ce05060e02ffcf3a373070454662b0f1a75426b1b19c2b5e9c59607"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="【修真院】求职辅导" title="【修真院】求职辅导"></a>
+    </div>
+    <div class="rithg">
+        <p>
+            <img src="images/right-bar_11.png" height="14" width="25"/>
+            联系电话
+        </p>
+        <p>010-59478634</p>
+        <p><img src="images/sidebar-email.png" height="22" width="28"/>
+            邮件
+        </p>
+        <p>hr@ptteng.com</p>
+    </div>
+</div>

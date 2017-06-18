@@ -1,0 +1,29 @@
+.search-top {
+    background-color: #F6F7F8
+}
+
+.tag-bottom {
+    border-bottom: 2px solid #EB5255
+}
+
+.search-title {
+    display: inline-block;
+    padding: 3px 20px;
+    border-bottom: 0;
+    cursor: pointer;
+    font-size: 2rem
+}
+
+.search-title-company {
+    border-right: 0
+}
+
+.search-title-job {
+    margin-left: -.5%
+}
+
+.searchTitleChoice {
+    background-color: #EB5255;
+    color: #fff
+}
+

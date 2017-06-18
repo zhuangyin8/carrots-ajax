@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<script>
+    var timeStart = new Date();
+</script>
+<!--[if lte IE 10]>
+<script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script><![endif]-->
+
+<html data-ng-app="carrots">
+<head lang="en">
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>萝卜多-知根知底的社群招聘</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/publicStyle.css">
+</head>
+<body>
+<div data-ui-view=""></div>
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.3.18/angular.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="vendor/base/base.js"></script>
+<script src="js/config.js"></script>
+<script src="js/route.js"></script>
+<script src="js/directives/fsp-paging/pagination.js"></script>
+<script src="js/service/project-service-0.0.1.js"></script>
+<script src="js/service/ajaxAddress.js"></script>
+<script src="js/factory/fsp-util-0.0.1.js"></script>
+<script src="js/factory/project-filter-0.0.1.js"></script>
+<script src="js/constant/areaConstant.js"></script>
+</body>
+<script>
+    var timeEnd = new Date();
+    console.log('总耗时：' + (timeEnd - timeStart));
+</script>
+</html>
